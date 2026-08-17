@@ -16,21 +16,43 @@ this folder (see [Isolation](#isolation)).
 
 ## Quick start
 
+Pick your environment manager. All commands assume you are in the folder
+that contains the `dashboard` package (its parent).
+
+### Option A — pip + venv
+
 ```bat
-:: 1. create a virtual environment
 python -m venv env
+env\Scripts\activate
+python -m pip install -r requirements.txt
+python -m dashboard.app
+```
 
-:: 2. install the pinned dependencies
-env\Scripts\pip install -r requirements.txt
+### Option B — uv
 
-:: 3. run the dashboard
-env\Scripts\python -m dashboard.app
+```bat
+uv venv env
+uv pip install -r requirements.txt
+uv run python -m dashboard.app
+```
+
+### Option C — Anaconda / Miniconda
+
+```bat
+conda create -n automl-dashboard python=3.9
+conda activate automl-dashboard
+python -m pip install -r requirements.txt
+python -m dashboard.app
 ```
 
 Open http://127.0.0.1:8050 in your browser.
 
-> `python -m dashboard.app` must be launched from the directory that contains
-> the `dashboard` package (its parent), so that the package is importable.
+> Notes
+> - `python -m dashboard.app` must be launched from the directory that
+>   contains the `dashboard` package (its parent), so that the package is
+>   importable.
+> - Dependencies are pinned for CPython 3.9 — the version the app was
+>   developed and tested against.
 
 ### Configuration via environment variables
 
@@ -148,8 +170,11 @@ engineering, chained training of 3 targets, resume/pause semantics, plotly
 figures, HTML report, Dash app boot + callbacks):
 
 ```bat
-env\Scripts\python -m dashboard.tests.e2e_smoke
+python -m dashboard.tests.e2e_smoke
 ```
+
+(with your virtual environment activated — same env as the one used to run
+the app; the test runs out of CWD once the `dashboard` package is importable)
 
 Expected result: `PASS=79 FAIL=0` (run time ~4 minutes locally; the test
 snakes a small synthetic dataset end-to-end). Model training inside the test

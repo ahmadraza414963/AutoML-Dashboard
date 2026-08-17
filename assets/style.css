@@ -1,0 +1,104 @@
+/* ==========================================================================
+   AutoML Dashboard — modern styling
+   ========================================================================== */
+body {
+  background: #f4f6f9;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.app-header {
+  background: linear-gradient(90deg, #0d47a1 0%, #1565c0 55%, #1e88e5 100%);
+  border-radius: 12px;
+  padding: 14px 20px;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(13, 71, 161, 0.25);
+}
+.app-header h4 { color: #fff; margin: 0; }
+.app-header .text-muted { color: #cfe3ff !important; }
+
+/* tabs */
+.tabs { border: none; margin-bottom: 12px; }
+.tab { background: #fff; border-radius: 10px 10px 0 0 !important;
+       border: 1px solid #e3e8ef !important; border-bottom: none !important;
+       font-weight: 600; color: #455a64; }
+.tab--active { color: #0d47a1 !important; border-top: 3px solid #1e88e5 !important; }
+.tab-content { background: #fff; border-radius: 0 10px 10px 10px;
+               border: 1px solid #e3e8ef; padding: 16px; }
+
+/* cards */
+.card { border: 1px solid #e3e8ef; border-radius: 12px; overflow: hidden; }
+.card-header { background: #f8fafc; border-bottom: 1px solid #e3e8ef;
+               font-size: 0.95rem; }
+.card-body { padding: 1rem 1.25rem; }
+
+/* upload box */
+.upload-box {
+  border: 2px dashed #90a4ae;
+  border-radius: 10px;
+  padding: 26px 14px;
+  text-align: center;
+  color: #546e7a;
+  background: #fbfdff;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.upload-box:hover { border-color: #1e88e5; background: #f0f7ff; }
+
+/* fixed-height scrollable preview + console */
+.preview-scroll {
+  max-height: 520px;
+  overflow: auto;
+  border: 1px solid #e3e8ef;
+  border-radius: 8px;
+}
+.preview-scroll table { margin-bottom: 0; }
+
+.console-fixed {
+  height: 380px;
+  overflow-y: auto;
+  background: #10222f;
+  color: #a9e1c2;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* summary bullets */
+.summary-list .list-group-item {
+  background: #f8fafc;
+  border-bottom: 1px solid #eef2f7;
+  font-size: 0.92rem;
+}
+.summary-list .list-group-item:first-child { border-radius: 8px 8px 0 0; }
+.summary-list .list-group-item:last-child { border-radius: 0 0 8px 8px; }
+
+/* session list */
+.session-list .table { margin-bottom: 0; }
+.session-list tbody tr { cursor: pointer; }
+.session-list tbody tr:hover { background: #eaf3ff; }
+.session-row td { vertical-align: middle; }
+
+/* per-model progress bars inside the console progress card */
+.models-progress-scroll {
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid #eef2f7;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fbfdff;
+}
+.models-progress-scroll .progress {
+  height: 6px;
+}
+
+/* dash tables */
+.dash-spreadsheet-container .dash-spreadsheet-inner td { padding: 4px 8px; }
+
+/* small screen tweaks */
+@media (max-width: 768px) {
+  .app-header .float-end { float: none !important; margin-top: 8px; }
+}
